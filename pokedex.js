@@ -3,6 +3,7 @@ const ALL_POKEMONS = [];
 const ALL_POKEMONS_INFO = [];
 
 
+
 const getPokemonsAll = () => {
   return fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151")
     .then((response) => {
@@ -26,10 +27,29 @@ const getPokemonById = async (pokemonsList) => {
   return ALL_POKEMONS;
 };
 
+
+const drawPokemons = (list) =>{
+
+    for(pokemon of list){
+        const div = document.createElement('div');
+        div.className = "card"
+        const img = document.createElement('img');
+        img.className = "imgPokemon"
+        const h3 = document.createElement('h3');
+        img.setAttribute('src',pokemon.image);
+        h3.innerText = pokemon.name;
+        div.appendChild(h3);
+        div.appendChild(img);
+        document.body.appendChild(div);
+    }
+}
+
+
+
 const initApp = async () => {
   const data = await getPokemonsAll();
   const pokemons = await getPokemonById(data.results);
-  console.log(pokemons)
+  drawPokemons (pokemons)
   pokemons.forEach (pokemon => {
     console.log(pokemon)
   })
