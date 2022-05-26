@@ -1,18 +1,5 @@
-
-    let pokemon = [];
-    for(let i = 1; i <= 150; i++) {
-        let response = {fetch('https://pokeapi.co/api/v2/pokemon/${i}');
-        .then(response => {
-            return response.json();
-        })
-        .then(response => {
-            return response;
-        })
-        .catch((error) => {
-            console.log("Ha habido un error al obtener los pokemons", error)
-        })}
-        pokemon.push(response); 
-        console.log(pokemon);
-    } 
-   
+pokemons.forEach(pokemon => {
+    ALL_POKEMONS_INFO.push(pokemon);
+    console.log(ALL_POKEMONS_INFO)
     
+});

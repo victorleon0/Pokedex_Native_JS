@@ -1,5 +1,6 @@
 const pokedex = document.getElementById("#pokedex");
 const ALL_POKEMONS = [];
+const ALL_POKEMONS_INFO = [];
 
 
 const getPokemonsAll = () => {
@@ -16,7 +17,6 @@ const getPokemonsAll = () => {
 };
 
 
-
 const getPokemonById = async (pokemonsList) => { 
   for (let i = 1; i < pokemonsList.length; i++) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
@@ -30,7 +30,11 @@ const initApp = async () => {
   const data = await getPokemonsAll();
   const pokemons = await getPokemonById(data.results);
   console.log(pokemons)
-  //pokemons.forEach(pokemon, )
+  pokemons.forEach (pokemon => {
+    console.log(pokemon)
+  })
+    
 };
+
 
 initApp();
