@@ -1,4 +1,4 @@
-const pokedex = document.getElementById("#pokedex");
+const pokedex = document.getElementById("pokedex");
 const ALL_POKEMONS = [];
 const ALL_POKEMONS_INFO = [];
 
@@ -35,28 +35,39 @@ const getPokemonById = async (pokemonsList) => {
 };
 
 
+
 const drawPokemons = (list) =>{
 
-    for(pokemon of list){
-        const div = document.createElement('div');
-        div.className = "card"
-        const img = document.createElement('img');
-        img.className = "imgPokemon"
-        const h3 = document.createElement('h3');
-        img.setAttribute('src',pokemon.image);
-        h3.innerText = pokemon.name;
-        div.appendChild(h3);
-        div.appendChild(img);
-        document.body.appendChild(div);
-    }
+  for(pokemon of list){
+      const div = document.createElement('div');
+      div.className = "card"
+
+      const img = document.createElement('img');
+      img.className = "imgPokemon"
+      img.setAttribute('src',pokemon.image);
+
+      const h3 = document.createElement('h3');
+      h3.innerText = pokemon.name;
+
+      const p = document.createElement('p');
+      p.innerText = pokemon.type;
+
+      div.appendChild(p);
+      div.appendChild(h3);
+      div.appendChild(img);
+      pokedex.appendChild(div);
+  }
 }
 
 
 
 const initApp = async () => {
+  
   const data = await getPokemonsAll();
   const pokemons = await getPokemonById(data.results);
   drawPokemons (pokemons)
+  createContainerPokedex()
+
   pokemons.forEach (pokemon => {
     console.log(pokemon)
   })
