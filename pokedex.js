@@ -21,8 +21,15 @@ const getPokemonsAll = () => {
 const getPokemonById = async (pokemonsList) => { 
   for (let i = 1; i < pokemonsList.length; i++) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
-    const pokemon = await response.json();
-    ALL_POKEMONS.push(pokemon);
+    const pokemon = await response.json()
+    const poke = {
+      name: pokemon.name,
+      id: pokemon.id,
+      type: pokemon.types.map((type) => type.type.name),
+      image: pokemon.sprites["front_default"],
+    };
+    console.log(poke);
+    ALL_POKEMONS.push(poke);
   }
   return ALL_POKEMONS;
 };
