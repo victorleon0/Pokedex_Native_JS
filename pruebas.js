@@ -59,3 +59,73 @@ function createContainer () {
         document.body.appendChild(div);
     }
   }
+
+
+  function createFooter () {
+    const footer = document.createElement ("footer");
+    footer.className = "footer"
+  
+    const divFooter = document.createElement ("div");
+    div.innerText = "divFooter";
+    footer.appendChild(div);
+  
+  
+    const img = document.createElement ("img");
+    img.classList.add("img");
+    img.src = "https://static.wikia.nocookie.net/batallas-versus-ff/images/d/db/Pok%C3%A9mon_Logo.png/revision/latest?cb=20150420214003&path-prefix=es";
+    img.alt = "Pokemon Logo";
+    divFooter.appendChild(img)
+  
+  
+    container.appendChild(footer);  
+  }
+
+
+  const drawFooter = (pokemonFooter) => {
+    const pokemonFooter = document.createElement("div");
+    bodyFooter.className = "pokemonFooter"
+    document.body.appendChild(pokemonFooter);
+  
+    const divFooter = document.createElement("div");
+    divFooter.className = "footer";
+  
+    const divLogoFooter = document.createElement("div");
+    divLogo.classList.add("logoFooter");
+    divFooter.appendChild(divLogoFooter);
+  
+    const imgFooter = document.createElement("img");
+    imgFooter.classList.add("imgFooter");
+    imgFooter.src = "https://www.freepnglogos.com/uploads/pokemon-logo-png-0.png";
+    imgFooter.alt = "Pokemon Logo";
+    divFooter.appendChild(img);
+  
+    const h4 = document.createElement("h4");
+    h4.innerText = "Copyright - Víctor León - 2022";
+    h4.className = "copyright";
+  
+    divFooter.appendChild(p);
+    divFooter.appendChild(h4);
+    divFooter.appendChild(imgFooter);
+  };
+
+
+  function createFilter () 
+  
+
+
+  const colors = {
+	fire: '#FDDFDF',
+	grass: '#DEFDE0',
+	electric: '#FCF7DE',
+	water: '#DEF3FD',
+	ground: '#f4e7da',
+	rock: '#d5d5d4',
+	fairy: '#fceaff',
+	poison: '#98d7a5',
+	bug: '#f8d5a3',
+	dragon: '#97b3e6',
+	psychic: '#eaeda1',
+	flying: '#F5F5F5',
+	fighting: '#E6E0D4',
+	normal: '#F5F5F5'
+}

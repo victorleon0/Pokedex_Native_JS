@@ -1,11 +1,62 @@
 body {
+    //background-image: url(../images/fondo.jpeg) ;
     background-color: orangered;
     margin: 0;
     font-family: rubik;
     color: white;
+    margin-top: 60px;
   }
+  .header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    width: 100vw;
+    .headerTitle {
+      display: flex;
+      flex:1;
+      font-size: 20px;
+      padding: 10px;
+      text-transform: capitalize;
+      color: black;
+      text-align: center;
+      justify-content: center;
+    }
+    .logoHeader {
+      display: flex;
+      flex: 2;
+      .imgHeader {
+        position: relative;
+        height: 100px;
+        bottom: 20px;
+        margin: 0 auto;
+      }
+    }
+    .inputHeader {
+      display: flex;
+      flex:1;
+      padding: 30px;
+      align-items: center;
+
+      .orderButton {
+        display: flex;
+        flex:1;
+        border-radius: 20px;
+        padding: 30px;
+        align-items: center;
+  
+      }
+
+    }
+    
+
+  }
+
   .container {
     display: flex;
+    flex-wrap: wrap;
     padding: 40px;
     margin: 0 auto;
   }
@@ -15,37 +66,52 @@ body {
     font-size: 54px;
   }
   .card {
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
     list-style: none;
-    padding: 40px;
-    background-color: #f4f4f4;
+    padding: 20px;
+    background-color: #dbb4b4;
     color: #222;
     text-align: center;
+    border-radius: 30px;
+    border-color: grey;
+    box-shadow: 2px;
   }
-  .card-title {
-    text-transform: uppercase;
-    font-size: 32px;
+  .pokemonName {
+    text-transform: capitalize;
+    font-size: 25px;
     font-weight: normal;
-    margin-bottom: 0;
   }
-  .card-subtitle {
+  .type {
+    
     font-weight: lighter;
     color: #666;
-    margin-top: 5px;
+
   }
-  .card-image {
-    height: 180px;
+  .imgPokemon {
+    height: 230px;
   }
   #pokedex {
+    width: 100vw;
     padding-inline-start: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 20px;
+    gap: 20px;
   }
   .card:hover {
     animation: bounce 0.5s linear;
   }
+
+
+
+
   @keyframes bounce {
     20% {
       transform: translateY(-6px);
