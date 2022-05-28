@@ -76,52 +76,82 @@ body {
     flex-wrap: wrap;
     padding: 40px;
     margin: 0 auto;
+    #pokedex {
+      width: 100vw;
+      padding-inline-start: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      .divPokemon {
+        position: relative;
+        width: 220px; height: 200px;
+        perspective: 30rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px;
+        animation: gradient 15s ease infinite;
+        .front, .back {
+          position: absolute;
+          width: 100%; 
+          height: 100%;
+          transition: transform 1s;
+          backface-visibility:hidden;
+          border-radius: 20px;
+          background-color: #dbb4b4;
+          color: #222;
+          text-align: center;
+          border-color: grey;
+          box-shadow: 2px;
+          }
+          .front {
+            display: flex;
+            flex-direction: column;
+            .pokemonName {
+              text-transform: capitalize;
+              font-size: 20px;
+            }
+            .imgPokemon {
+              width: 150px;
+            }
+
+          }
+          .back {
+            display: flex;
+            flex-direction: column;
+            transform: rotateY(180deg);
+            .pokemonName {
+              text-transform: capitalize;
+              font-size: 20px;
+            }
+            .imgPokemonBack {
+              width: 150px;
+            
+            }
+            
+
+          }
+        
+        
+        }
+        .divPokemon:hover .front{ transform: rotateY(180deg); }
+        .divPokemon:hover .back{ transform: rotateY(360deg); }       
+      
+    }
   }
   h1 {
     text-transform: uppercase;
     text-align: center;
     font-size: 54px;
   }
-  .card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 200px;
-    height: 200px;
-    list-style: none;
-    padding: 20px;
-    background-color: #dbb4b4;
-    color: #222;
-    text-align: center;
-    border-radius: 30px;
-    border-color: grey;
-    box-shadow: 2px;
-  }
-  .cardBack {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 200px;
-    height: 200px;
-    list-style: none;
-    padding: 20px;
-    background-color: #dbb4b4;
-    color: #222;
-    text-align: center;
-    border-radius: 30px;
-    border-color: grey;
-    box-shadow: 2px;
-  }
+
+
   
 
 
-  .pokemonName {
-    text-transform: capitalize;
-    font-size: 25px;
-    font-weight: normal;
-  }
+
+
   .type {
     
     font-weight: lighter;
@@ -131,16 +161,10 @@ body {
   .imgPokemon {
     height: 230px;
   }
-  #pokedex {
-    width: 100vw;
-    padding-inline-start: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
-  }
+  
+ 
+
+
   .card:hover {
     animation: bounce 0.5s linear;
   }

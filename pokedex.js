@@ -1,5 +1,4 @@
 const pokedex = document.getElementById("pokedex");
-const pokedexBack = document.getElementById("pokedexBack");
 const container = document.querySelector(".container");
 const ALL_POKEMONS = [];
 const ALL_POKEMONS_INFO = [];
@@ -76,8 +75,11 @@ function createHeader() {
 
 const drawPokemons = (list) => {
   for (pokemon of list) {
+    const divPokemon = document.createElement("div");
+    divPokemon.classList.add("divPokemon");
+
     const div = document.createElement("div");
-    div.className = "card";
+    div.className = "front";
 
     const img = document.createElement("img");
     img.className = "imgPokemon";
@@ -92,7 +94,7 @@ const drawPokemons = (list) => {
     p.className = "type";
 
     const divBack = document.createElement("div");
-    divBack.className = "cardBack";
+    divBack.className = "back";
 
     const imgBack = document.createElement("img");
     imgBack.className = "imgPokemonBack";
@@ -108,9 +110,9 @@ const drawPokemons = (list) => {
     pBack.className = "descriptionBack";
 
 
-    
-    pokedex.appendChild(div);
-    pokedex.appendChild(divBack);
+    pokedex.appendChild(divPokemon);
+    divPokemon.appendChild(div);
+    divPokemon.appendChild(divBack);
     div.appendChild(h3);
     divBack.appendChild(h3Back);
     div.appendChild(img);

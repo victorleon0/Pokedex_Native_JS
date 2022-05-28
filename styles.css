@@ -109,82 +109,7 @@ body {
   margin: 0 auto;
 }
 
-h1 {
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 54px;
-}
-
-.card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 200px;
-  height: 200px;
-  list-style: none;
-  padding: 20px;
-  background-color: #dbb4b4;
-  color: #222;
-  text-align: center;
-  border-radius: 30px;
-  border-color: grey;
-  -webkit-box-shadow: 2px;
-          box-shadow: 2px;
-}
-
-.cardBack {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 200px;
-  height: 200px;
-  list-style: none;
-  padding: 20px;
-  background-color: #dbb4b4;
-  color: #222;
-  text-align: center;
-  border-radius: 30px;
-  border-color: grey;
-  -webkit-box-shadow: 2px;
-          box-shadow: 2px;
-}
-
-.pokemonName {
-  text-transform: capitalize;
-  font-size: 25px;
-  font-weight: normal;
-}
-
-.type {
-  font-weight: lighter;
-  color: #666;
-}
-
-.imgPokemon {
-  height: 230px;
-}
-
-#pokedex {
+.container #pokedex {
   width: 100vw;
   -webkit-padding-start: 0;
           padding-inline-start: 0;
@@ -199,9 +124,108 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-grid-columns: (minmax(320px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
+}
+
+.container #pokedex .divPokemon {
+  position: relative;
+  width: 220px;
+  height: 200px;
+  -webkit-perspective: 30rem;
+          perspective: 30rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+}
+
+.container #pokedex .divPokemon .front, .container #pokedex .divPokemon .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 20px;
+  background-color: #dbb4b4;
+  color: #222;
+  text-align: center;
+  border-color: grey;
+  -webkit-box-shadow: 2px;
+          box-shadow: 2px;
+}
+
+.container #pokedex .divPokemon .front {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container #pokedex .divPokemon .front .pokemonName {
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.container #pokedex .divPokemon .front .imgPokemon {
+  width: 150px;
+}
+
+.container #pokedex .divPokemon .back {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.container #pokedex .divPokemon .back .pokemonName {
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.container #pokedex .divPokemon .back .imgPokemonBack {
+  width: 150px;
+}
+
+.container #pokedex .divPokemon:hover .front {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.container #pokedex .divPokemon:hover .back {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 54px;
+}
+
+.type {
+  font-weight: lighter;
+  color: #666;
+}
+
+.imgPokemon {
+  height: 230px;
 }
 
 .card:hover {
