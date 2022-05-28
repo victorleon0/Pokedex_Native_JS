@@ -1,7 +1,10 @@
 const pokedex = document.getElementById("pokedex");
+const pokedexBack = document.getElementById("pokedexBack");
 const container = document.querySelector(".container");
 const ALL_POKEMONS = [];
 const ALL_POKEMONS_INFO = [];
+
+
 
 const getPokemonsAll = () => {
   return fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151")
@@ -58,11 +61,12 @@ function createHeader() {
 
   const inputSearch = document.createElement("input");
   inputSearch.classList.add("inputSearch");
+  inputSearch.placeholder = "Encuentra tu Pokemon";
   divInput.appendChild(inputSearch);
 
   const orderButton = document.createElement("button");
   orderButton.classList.add("orderButton");
-  orderButton.innerText = "Ordenar resultados";
+  orderButton.innerText = "Ordenar";
   divInput.appendChild(orderButton);
 
   
@@ -87,12 +91,56 @@ const drawPokemons = (list) => {
     p.innerText = pokemon.type;
     p.className = "type";
 
-    div.appendChild(p);
-    div.appendChild(h3);
-    div.appendChild(img);
+    const divBack = document.createElement("div");
+    divBack.className = "cardBack";
+
+    const imgBack = document.createElement("img");
+    imgBack.className = "imgPokemonBack";
+    imgBack.setAttribute("src", pokemon.imageBack);
+
+    const h3Back = document.createElement("h3");
+    h3Back.innerText = pokemon.name;
+    h3Back.className = "pokemonNameBack";
+
+
+    const pBack = document.createElement("p");
+    pBack.innerText = pokemon.type;
+    pBack.className = "descriptionBack";
+
+
+    
     pokedex.appendChild(div);
+    pokedex.appendChild(divBack);
+    div.appendChild(h3);
+    divBack.appendChild(h3Back);
+    div.appendChild(img);
+    divBack.appendChild(imgBack);
+    div.appendChild(p);
+    divBack.appendChild(pBack);
+
   }
 };
+
+
+const searchPokemons = (event) => {
+
+  const searchInput = event.target.value.toLowerCase();
+  const resultPokemon = ALL_POKEMONS.filter((pokemon) => {
+    const searchName = pokemon.name.toLowerCase().includes(searchInput);
+    const searchId = pokemon.id === Number(searchInput);
+
+    return searchName || searchId;
+  });
+
+  drawPokemons(resultPokemon);
+};
+
+const addAllMyEventsListeners = () => {
+  document.getElementsByClassName(".inputSearch").addEventListener("input", searchPokemons);
+};
+	
+
+
 
 
 function createFilter () {

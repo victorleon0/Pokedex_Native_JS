@@ -4,7 +4,8 @@ body {
     margin: 0;
     font-family: rubik;
     color: white;
-    margin-top: 60px;
+    padding-top: 60px;
+    margin: 0 auto;
   }
   .header {
     background-color: white;
@@ -39,13 +40,29 @@ body {
       flex:1;
       padding: 30px;
       align-items: center;
+      .inputSearch {
+        font-size: 17px;
+        margin-right: 50px;
+        border-radius: 30px;
+        box-shadow: inset;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: white;
+        
+      }
 
       .orderButton {
         display: flex;
         flex:1;
         border-radius: 20px;
-        padding: 30px;
         align-items: center;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: rgba(245, 126, 83, 0.408);
   
       }
 
@@ -81,6 +98,25 @@ body {
     border-color: grey;
     box-shadow: 2px;
   }
+  .cardBack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    list-style: none;
+    padding: 20px;
+    background-color: #dbb4b4;
+    color: #222;
+    text-align: center;
+    border-radius: 30px;
+    border-color: grey;
+    box-shadow: 2px;
+  }
+  
+
+
   .pokemonName {
     text-transform: capitalize;
     font-size: 25px;

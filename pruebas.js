@@ -109,7 +109,25 @@ function createContainer () {
   };
 
 
-  function createFilter () 
+
+  const searchPokemons = (event) => {
+
+    const searchInput = event.target.value.toLowerCase();
+    const resultPokemon = ALL_POKEMONS.filter((pokemon) => {
+      const searchName = pokemon.name.toLowerCase().includes(searchInput);
+      const searchId = pokemon.id === Number(inputValue);
+  
+      return searchName || searchId;
+    });
+  
+    drawPokemons(resultPokemon);
+  };
+  
+  const addAllMyEventsListeners = () => {
+    document.getElementsByClassName(".inputSearch").addEventListener("input", searchPokemons);
+  };
+  
+  
   
 
 
