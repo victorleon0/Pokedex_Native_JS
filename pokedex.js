@@ -29,7 +29,7 @@ const getPokemonById = async (pokemonsList) => {
       image: pokemon.sprites["front_default"],
       imageBack: pokemon.sprites["back_default"],
     };
-    console.log(poke);
+    
     ALL_POKEMONS.push(poke);
   }
   return ALL_POKEMONS;
@@ -74,6 +74,9 @@ function createHeader() {
 }
 
 const drawPokemons = (list) => {
+
+  pokedex.innerHTML = "";
+
   for (pokemon of list) {
     const divPokemon = document.createElement("div");
     divPokemon.classList.add("divPokemon");
@@ -124,39 +127,25 @@ const drawPokemons = (list) => {
 };
 
 
+
 const searchPokemons = (event) => {
 
-  const searchInput = event.target.value.toLowerCase();
-  const resultPokemon = ALL_POKEMONS.filter((pokemon) => {
-    const searchName = pokemon.name.toLowerCase().includes(searchInput);
-    const searchId = pokemon.id === Number(searchInput);
+  const buscaInput = event.target.value.toLowerCase();
+  const resultPokemon = ALL_POKEMONS.filter(pokemon => {
 
-    return searchName || searchId;
+    const matchName = pokemon.name.toLowerCase().includes(buscaInput);
+    return matchName
+    
   });
+  console.log(buscaInput);
 
   drawPokemons(resultPokemon);
 };
 
-const addAllMyEventsListeners = () => {
-  document.getElementsByClassName(".inputSearch").addEventListener("input", searchPokemons);
+const eventsListener = () => {
+  document.querySelector(".inputSearch").addEventListener("input", searchPokemons);
+  
 };
-	
-
-
-
-
-function createFilter () {
-  const inputSearch = event.target.value.toLowerCase();
-  const found = ALL_POKEMONS.filter((pokemon) => {
-    const matchName = pokemon.name.toLowerCase().includes(inputValue);
-    const matchId = pokemon.id === Number(inputValue);
-    return matchName || matchId
-  })
-
-  createFilter(inputSearch)
-};
-
-
 
 
 const initApp = async () => {
@@ -164,9 +153,10 @@ const initApp = async () => {
   const pokemons = await getPokemonById(data.results);
   createHeader();
   drawPokemons(pokemons);
+  eventsListener();
 
   pokemons.forEach((pokemon) => {
-    console.log();
+    
   });
 };
 
