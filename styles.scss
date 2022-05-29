@@ -1,176 +1,254 @@
 body {
-    //background-image: url(../images/fondo.jpeg) ;
-    background-color: orangered;
-    margin: 0;
-    font-family: rubik;
-    color: white;
-    padding-top: 60px;
-    margin: 0 auto;
-  }
-  .header {
-    background-color: white;
-    position: fixed;
-    top: 0;
+  //background-image: url(../images/fondo.jpeg) ;
+  background-color: orangered;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  padding-top: 60px;
+  margin: 0 auto;
+  resize: both;
+  overflow: auto;
+}
+.header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  width: 100vw;
+  margin: 0 auto;
+  .logoHeader {
     display: flex;
-    flex-direction: row;
-    height: 60px;
-    width: 100vw;
-    .headerTitle {
-      display: flex;
-      flex:1;
-      font-size: 20px;
-      padding: 10px;
-      text-transform: capitalize;
-      color: black;
-      text-align: center;
-      justify-content: center;
+    flex: 1;
+    .imgHeader {
+      position: relative;
+      height: 100px;
+      bottom: 20px;
+      margin: 0 auto;
     }
-    .logoHeader {
-      display: flex;
-      flex: 2;
-      .imgHeader {
-        position: relative;
-        height: 100px;
-        bottom: 20px;
-        margin: 0 auto;
-      }
-    }
-    .inputHeader {
-      display: flex;
-      flex:1;
-      padding: 30px;
-      align-items: center;
-      .inputSearch {
-        font-size: 17px;
-        margin-right: 50px;
-        border-radius: 30px;
-        box-shadow: inset;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: white;
-        
-      }
-
-      .orderButton {
-        display: flex;
-        flex:1;
-        border-radius: 20px;
-        align-items: center;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: rgba(245, 126, 83, 0.408);
-  
-      }
-
-    }
-    
-
   }
+  .inputHeader {
+    display: flex;
+    flex: 1;
+    padding: 30px;
+    align-items: center;
+    .inputSearch {
+      font-size: 17px;
+      margin-right: 50px;
+      border-radius: 30px;
+      box-shadow: inset;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: white;
+    }
 
-  .container {
+    .orderButton {
+      display: flex;
+      flex: 1;
+      border-radius: 0px;
+      align-items: center;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: rgba(249, 231, 34, 0.408);
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+  margin: 0 auto;
+  #pokedex {
+    width: 100vw;
+    padding-inline-start: 0;
     display: flex;
     flex-wrap: wrap;
-    padding: 40px;
-    margin: 0 auto;
-    #pokedex {
-      width: 100vw;
-      padding-inline-start: 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    .divPokemon {
+      position: relative;
+      width: 280px;
+      height: 200px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      .divPokemon {
-        position: relative;
-        width: 220px; height: 200px;
-        perspective: 30rem;
+      padding: 0px;
+      animation: gradient 15s ease infinite;
+      .front,
+      .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: transform 1s;
+        backface-visibility: hidden;
+        border-radius: 20px;
+        border: 1px solid black;
+        background-color: whitesmoke;
+        color: #222;
+        text-align: center;
+        border-color: grey;
+        box-shadow: 2px;
+        backdrop-filter: brightness(60%);
+      }
+      .front {
         display: flex;
-        justify-content: space-between;
-        padding: 0px;
-        animation: gradient 15s ease infinite;
-        .front, .back {
-          position: absolute;
-          width: 100%; 
-          height: 100%;
-          transition: transform 1s;
-          backface-visibility:hidden;
-          border-radius: 20px;
-          background-color: #dbb4b4;
-          color: #222;
-          text-align: center;
-          border-color: grey;
-          box-shadow: 2px;
-          }
-          .front {
-            display: flex;
-            flex-direction: column;
-            .pokemonName {
-              text-transform: capitalize;
-              font-size: 20px;
-            }
-            .imgPokemon {
-              width: 150px;
-            }
-
-          }
-          .back {
-            display: flex;
-            flex-direction: column;
-            transform: rotateY(180deg);
-            .pokemonName {
-              text-transform: capitalize;
-              font-size: 20px;
-            }
-            .imgPokemonBack {
-              width: 150px;
-            
-            }
-            
-
-          }
-        
-        
+        flex-direction: column;
+        .pokemonName {
+          color: white;
+          text-shadow: 2px 2px 4px #000000;
+          text-transform: capitalize;
+          font-size: 20px;
         }
-        .divPokemon:hover .front{ transform: rotateY(180deg); }
-        .divPokemon:hover .back{ transform: rotateY(360deg); }       
-      
+        .imgPokemon {
+          width: 150px;
+        }
+
+        .type {
+          position: relative;
+          bottom: 70px;
+          left: 70px;
+        }
+      }
+      .back {
+        display: flex;
+        flex-direction: column;
+        transform: rotateY(180deg);
+        .imgPokemonBack {
+          width: 150px;
+        }
+        .peso {
+          position: relative;
+          text-align: right;
+          font-size: 15px;
+          font-weight: bold;
+          right: 20px;
+          bottom: 150px;
+        }
+        .altura {
+          position: relative;
+          text-align: right;
+          font-size: 15px;
+          font-weight: bold;
+          right: 20px;
+          bottom: 150px;
+        }
+        .habilidades {
+          position: relative;
+          justify-items: center;
+          font-size: 16px;
+          //right: 20px;
+          bottom: 100px;
+        }
+      }
+    }
+    .divPokemon:hover .front {
+      transform: rotateY(180deg);
+    }
+    .divPokemon:hover .back {
+      transform: rotateY(360deg);
     }
   }
-  h1 {
-    text-transform: uppercase;
+}
+
+.footer-container {
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  width: 100vw;
+  .copyright {
+    display: flex;
+    flex: 1;
+    font-size: 10px;
+    padding: 10px;
+    text-transform: capitalize;
+    color: black;
     text-align: center;
-    font-size: 54px;
+    justify-content: center;
+  }
+  .logoFooter-container {
+    display: flex;
+    flex: 5;
+    .imgFooter {
+      position: relative;
+      height: 100px;
+      bottom: 30px;
+      margin: 0 auto;
+    }
+  }
+  .social-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 30px;
+    .imgLinkedin {
+      width: 30px;
+      height: 30px;
+      padding-top: 6px;
+      padding-right: 5px;
+      :hover {
+        animation: bounce 0.5s linear;
+      }
+    }
+
+    .imgFacebook {
+      width: 30px;
+      height: 30px;
+      padding-top: 6px;
+      padding-right: 5px;
+      :hover {
+        animation: bounce 0.5s linear;
+      }
+    }
+    .imgInstagram {
+      width: 30px;
+      height: 30px;
+      padding-top: 6px;
+      padding-right: 5px;
+      :hover {
+        animation: bounce 0.5s linear;
+      }
+    }
+    .imgGithub {
+      width: 30px;
+      height: 30px;
+      padding-top: 6px;
+      padding-right: 5px;
+      :hover {
+        animation: bounce 0.5s linear;
+      }
+    }
+    .imgEmail {
+      width: 30px;
+      height: 25px;
+      padding-top: 8px;
+      padding-right: 5px;
+      :hover {
+        animation: bounce 0.5s linear;
+      }
+    }
   }
 
-
-  
-
-
-
-
   .type {
-    
     font-weight: lighter;
     color: #666;
-
   }
   .imgPokemon {
     height: 230px;
   }
-  
- 
-
 
   .card:hover {
     animation: bounce 0.5s linear;
   }
-
-
-
 
   @keyframes bounce {
     20% {
@@ -186,4 +264,4 @@ body {
       transform: translateY(-0px);
     }
   }
-  
+}
