@@ -23,7 +23,7 @@
   background-color: grey;
 }
 
-.header .progressBar .progress {
+.header .progressBar #progress {
   width: 0%;
   height: 10px;
   background-color: yellow;

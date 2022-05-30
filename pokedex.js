@@ -203,12 +203,15 @@ const searchPokemons = (event) => {
 function scrollBar () {
   const scrollProgress = document.getElementById('progress');
   const height = document.getElementById("pokedex").scrollHeight - document.documentElement.clientHeight;
+  
 }
 
 const eventsListener = () => {
   document.querySelector(".inputSearch").addEventListener("input", searchPokemons);
 
   window.addEventListener('scroll', () => {
+    const scrollProgress = document.getElementById('progress');
+    const height = document.getElementById("pokedex").scrollHeight - document.documentElement.clientHeight;
     const scrollTop = document.getElementById("pokedex").scrollTop || document.documentElement.scrollTop;
     scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
   })
