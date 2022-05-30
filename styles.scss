@@ -1,14 +1,4 @@
-body {
-  //background-image: url(../images/fondo.jpeg) ;
-  background-color: orangered;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
-  padding-top: 60px;
-  margin: 0 auto;
-  resize: both;
-  overflow: auto;
-}
+
 .header {
   background-color: white;
   position: fixed;
@@ -18,6 +8,20 @@ body {
   height: 60px;
   width: 100vw;
   margin: 0 auto;
+  z-index: 1;
+  .progressBar {
+    position: fixed;
+    top:60px;
+    width: 100%;
+    height: 10px;
+    background-color: grey;
+    .progress {
+      width: 0%;
+      height: 10px;
+      background-color: yellow;
+    }
+
+  }
   .logoHeader {
     display: flex;
     flex: 1;
@@ -58,8 +62,19 @@ body {
     }
   }
 }
-
+body {
+  //background-image: url(../images/fondo.jpeg) ;
+  background-color: orangered;
+  //margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  padding-top: 60px;
+  margin: 0 auto;
+  //resize: both;
+  //overflow: 100% ;
+}
 .container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   padding: 40px;

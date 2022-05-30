@@ -2,6 +2,29 @@ const pokedex = document.getElementById("pokedex");
 const container = document.querySelector(".container");
 const ALL_POKEMONS = [];
 const ALL_POKEMONS_INFO = [];
+const POKEMON_TYPES = [];
+const colors = {
+  all: '#FFD700',
+grass: "#d2f2c2",
+poison: "#f7cdf7",
+fire: "#ffd1b5",
+flying: "#eae3ff",
+water: "#c2f3ff",
+bug: "#e0e8a2",
+normal: "#e6e6c3",
+electric: "#fff1ba",
+ground: "#e0ccb1",
+fighting: "#fcada9",
+psychic: "#ffc9da",
+rock: "#f0e09c",
+fairy: "#ffdee5",
+steel: "#e6eaf0",
+ice: "#e8feff",
+ghost: "#dbbaff",
+dragon: "#c4bdff",
+dark: "#a9abb0"
+};
+
 
 const getPokemonsAll = () => {
   return fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151")
@@ -30,8 +53,10 @@ const getPokemonById = async (pokemonsList) => {
       altura: pokemon.height,
       habilidad: pokemon.abilities.map((ability) => ability.ability.name),
     };
+      
 
     ALL_POKEMONS.push(poke);
+    POKEMON_TYPES.push(poke.type)
   }
   return ALL_POKEMONS;
 };
@@ -39,6 +64,7 @@ const getPokemonById = async (pokemonsList) => {
 function createHeader() {
   const header = document.createElement("header");
   header.className = "header";
+
 
   const divLogo = document.createElement("div");
   divLogo.classList.add("logoHeader");
@@ -63,7 +89,22 @@ function createHeader() {
   orderButton.classList.add("orderButton");
   orderButton.innerText = "Ordenar";
   divInput.appendChild(orderButton);
+
+  const progressBar = document.createElement("div");
+  progressBar.className = "progressBar"
+  header.appendChild(progressBar);
+
+  const progress = document.createElement("div");
+  progress.setAttribute("id", "progress");
+  progressBar.appendChild(progress);
+
+
+  const typesButton = document.createElement("div");
+  typesButton.setAttribute ("id", "typesButton");
+  header.appendChild(typesButton);
+
   
+
   document.body.insertBefore(header, container);
 }
 
@@ -89,8 +130,27 @@ const drawPokemons = (list) => {
     p.innerText = "Tipo " + pokemon.type;
     p.className = "type";
 
+    
+
     const divBack = document.createElement("div");
     divBack.className = "back";
+
+    if (pokemon.type[1]) {
+      div.style.background ='linear-gradient(150deg,' + 
+          colors[pokemon.type[0]] +
+          ' 50%,' +
+         colors[pokemon.type[1]] +
+      ' 50%)';
+      divBack.style.background ='linear-gradient(150deg,' + 
+          colors[pokemon.type[0]] +
+          ' 50%,' +
+         colors[pokemon.type[1]] +
+      ' 50%)';
+      }else{
+          div.style.background = colors[pokemon.type[0]];
+          divBack.style.background = colors[pokemon.type[0]];
+      }
+
 
     const habilidadPokemonBack = document.createElement("p");
     habilidadPokemonBack.innerText = "Habilidades:  " + pokemon.habilidad;
@@ -111,6 +171,8 @@ const drawPokemons = (list) => {
     //const h3Back = document.createElement("h3");
     //h3Back.innerText = pokemon.name;
     //h3Back.className = "pokemonNameBack";
+
+    
 
     pokedex.appendChild(divPokemon);
     divPokemon.appendChild(div);
@@ -138,10 +200,19 @@ const searchPokemons = (event) => {
   drawPokemons(resultPokemon);
 };
 
+function scrollBar () {
+  const scrollProgress = document.getElementById('progress');
+  const height = document.getElementById("pokedex").scrollHeight - document.documentElement.clientHeight;
+}
+
 const eventsListener = () => {
-  document
-    .querySelector(".inputSearch")
-    .addEventListener("input", searchPokemons);
+  document.querySelector(".inputSearch").addEventListener("input", searchPokemons);
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.getElementById("pokedex").scrollTop || document.documentElement.scrollTop;
+    scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
+  })
+
 };
 
 function createFooter() {
@@ -208,6 +279,7 @@ const initApp = async () => {
   drawPokemons(pokemons);
   eventsListener();
   createFooter();
+  scrollBar();
 
   pokemons.forEach((pokemon) => {});
 };
