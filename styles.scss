@@ -39,6 +39,8 @@
     flex: 1;
     padding: 30px;
     align-items: center;
+    margin: 0 auto;
+    
     .inputSearch {
       font-size: 17px;
       margin-right: 50px;
@@ -49,6 +51,11 @@
       padding-top: 10px;
       padding-bottom: 10px;
       background-color: white;
+    }
+    .logoLupa {
+      position: relative;
+      width: 30px;
+      right: 50px;
     }
 
     
@@ -108,7 +115,7 @@ body {
         display: flex;
         flex-direction: column;
         .pokemonName {
-          color: white;
+          color: rgb(255, 255, 255);
           text-shadow: 2px 2px 4px #000000;
           text-transform: capitalize;
           font-size: 20px;

@@ -2,7 +2,6 @@ const pokedex = document.getElementById("pokedex");
 const container = document.querySelector(".container");
 const ALL_POKEMONS = [];
 const ALL_POKEMONS_INFO = [];
-const POKEMON_TYPES = [];
 const colors = {
   all: '#FFD700',
 grass: "#d2f2c2",
@@ -52,14 +51,16 @@ const getPokemonById = async (pokemonsList) => {
       peso: pokemon.weight,
       altura: pokemon.height,
       habilidad: pokemon.abilities.map((ability) => ability.ability.name),
-    };
       
+    };
+
 
     ALL_POKEMONS.push(poke);
-    POKEMON_TYPES.push(poke.type)
+  
   }
   return ALL_POKEMONS;
 };
+
 
 function createHeader() {
   const header = document.createElement("header");
@@ -82,8 +83,13 @@ function createHeader() {
 
   const inputSearch = document.createElement("input");
   inputSearch.classList.add("inputSearch");
-  inputSearch.placeholder = "Encuentra tu Pokemon";
+  inputSearch.placeholder = "Encuentra tu Pokémon";
   divInput.appendChild(inputSearch);
+
+  const logoLupa = document.createElement("img");
+  logoLupa.classList.add("logoLupa")
+  logoLupa.src = "https://cdn-icons-png.flaticon.com/512/3721/3721746.png"
+  divInput.appendChild(logoLupa)
 
   //const orderButton = document.createElement("button");
   //orderButton.classList.add("orderButton");
