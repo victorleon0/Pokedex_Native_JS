@@ -9,6 +9,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 60px;
   width: 100vw;
   margin: 0 auto;
@@ -20,7 +23,7 @@
   top: 60px;
   width: 100%;
   height: 10px;
-  background-color: grey;
+  background-color: black;
 }
 
 .header .progressBar #progress {
@@ -71,26 +74,10 @@
   background-color: white;
 }
 
-.header .inputHeader .orderButton {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  border-radius: 0px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: rgba(249, 231, 34, 0.408);
-}
-
 body {
-  background-color: orangered;
+  background: #f60000;
+  background: -webkit-gradient(linear, left top, right top, color-stop(11%, #f60000), color-stop(100%, #fff604), to(#00d4ff));
+  background: linear-gradient(90deg, #f60000 11%, #fff604 100%, #00d4ff 100%);
   font-family: Arial, Helvetica, sans-serif;
   color: black;
   padding-top: 60px;
@@ -153,13 +140,13 @@ body {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   border-radius: 20px;
-  border: 1px solid black;
+  border: 2px solid black;
   background-color: whitesmoke;
   color: #222;
   text-align: center;
   border-color: grey;
-  -webkit-box-shadow: 2px;
-          box-shadow: 2px;
+  -webkit-box-shadow: 4px;
+          box-shadow: 4px;
   -webkit-backdrop-filter: brightness(60%);
           backdrop-filter: brightness(60%);
 }

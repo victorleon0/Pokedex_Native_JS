@@ -5,6 +5,7 @@
   top: 0;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   height: 60px;
   width: 100vw;
   margin: 0 auto;
@@ -14,11 +15,12 @@
     top:60px;
     width: 100%;
     height: 10px;
-    background-color: grey;
+    background-color: black;
     #progress {
       width: 0%;
       height: 10px;
       background-color: yellow;
+      
     }
 
   }
@@ -49,22 +51,13 @@
       background-color: white;
     }
 
-    .orderButton {
-      display: flex;
-      flex: 1;
-      border-radius: 0px;
-      align-items: center;
-      padding-left: 40px;
-      padding-right: 40px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: rgba(249, 231, 34, 0.408);
-    }
+    
   }
 }
 body {
-  //background-image: url(../images/fondo.jpeg) ;
-  background-color: orangered;
+  //background-image: url("https://wallpaperaccess.com/full/45634.png") ;
+  background: rgb(246,0,0);
+  background: linear-gradient(90deg, rgba(246,0,0,1) 11%, rgba(255,246,4,1) 100%, rgba(0,212,255,1) 100%);
   //margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: black;
@@ -103,12 +96,12 @@ body {
         transition: transform 1s;
         backface-visibility: hidden;
         border-radius: 20px;
-        border: 1px solid black;
+        border: 2px solid black;
         background-color: whitesmoke;
         color: #222;
         text-align: center;
         border-color: grey;
-        box-shadow: 2px;
+        box-shadow: 4px;
         backdrop-filter: brightness(60%);
       }
       .front {

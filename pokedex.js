@@ -85,10 +85,10 @@ function createHeader() {
   inputSearch.placeholder = "Encuentra tu Pokemon";
   divInput.appendChild(inputSearch);
 
-  const orderButton = document.createElement("button");
-  orderButton.classList.add("orderButton");
-  orderButton.innerText = "Ordenar";
-  divInput.appendChild(orderButton);
+  //const orderButton = document.createElement("button");
+  //orderButton.classList.add("orderButton");
+  //orderButton.innerText = "Ordenar";
+  //divInput.appendChild(orderButton);
 
   const progressBar = document.createElement("div");
   progressBar.className = "progressBar"
@@ -99,9 +99,9 @@ function createHeader() {
   progressBar.appendChild(progress);
 
 
-  const typesButton = document.createElement("div");
-  typesButton.setAttribute ("id", "typesButton");
-  header.appendChild(typesButton);
+  //const typesButton = document.createElement("div");
+  //typesButton.setAttribute ("id", "typesButton");
+  //header.appendChild(typesButton);
 
   
 
@@ -242,37 +242,57 @@ function createFooter() {
   divSocial.classList.add("social-container");
   footer.appendChild(divSocial);
 
+  const linkLinkedin = document.createElement("a");
+  linkLinkedin.target = "_blank"
+  linkLinkedin.href = "https://www.linkedin.com/in/victorleon0/"
+  divSocial.appendChild(linkLinkedin)
+
   const logoLinkedin = document.createElement("img");
   logoLinkedin.classList.add("imgLinkedin");
   logoLinkedin.src = "https://cdn-icons-png.flaticon.com/512/174/174857.png";
-  logoLinkedin.href = "https://www.linkedin.com/in/victorleon0/";
-  divSocial.appendChild(logoLinkedin);
+  linkLinkedin.appendChild(logoLinkedin);
+
+  const linkFacebook = document.createElement("a");
+  linkFacebook.target = "_blank"
+  linkFacebook.href = "https://www.facebook.com/Victor.Leoon/"
+  divSocial.appendChild(linkFacebook)
 
   const logoFacebook = document.createElement("img");
   logoFacebook.classList.add("imgFacebook");
   logoFacebook.src = "https://cdn-icons-png.flaticon.com/512/174/174848.png";
-  logoFacebook.href = "https://www.facebook.com/Victor.Leoon/";
-  divSocial.appendChild(logoFacebook);
+  linkFacebook.appendChild(logoFacebook);
+
+  const linkInstagram = document.createElement("a");
+  linkInstagram.target = "_blank"
+  linkInstagram.href = "https://www.instagram.com/victorleon_/"
+  divSocial.appendChild(linkInstagram)
 
   const logoInstagram = document.createElement("img");
   logoInstagram.classList.add("imgInstagram");
   logoInstagram.src =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1025px-Instagram-Icon.png";
-  logoInstagram.href = "https://www.instagram.com/victorleon_/";
-  divSocial.appendChild(logoInstagram);
+  linkInstagram.appendChild(logoInstagram);
+
+  const linkGithub = document.createElement("a");
+  linkGithub.target = "_blank"
+  linkGithub.href = "https://github.com/victorleon0"
+  divSocial.appendChild(linkGithub)
 
   const logoGithub = document.createElement("img");
   logoGithub.classList.add("imgGithub");
   logoGithub.src = "https://cdn-icons-png.flaticon.com/512/25/25231.png";
-  logoGithub.href = "https://github.com/victorleon0";
-  divSocial.appendChild(logoGithub);
+  linkGithub.appendChild(logoGithub);
+
+  const linkEmail = document.createElement("a");
+  linkEmail.target = "_blank"
+  linkEmail.href = "mailto: victor.leon.huerta@gmail.com"
+  divSocial.appendChild(linkEmail)
 
   const logoEmail = document.createElement("img");
   logoEmail.classList.add("imgEmail");
   logoEmail.src =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png";
-  logoEmail.href = "mailto: victor.leon.huerta@gmail.com";
-  divSocial.appendChild(logoEmail);
+  linkEmail.appendChild(logoEmail);
 }
 
 const initApp = async () => {
