@@ -61,7 +61,6 @@ const getPokemonById = async (pokemonsList) => {
   return ALL_POKEMONS;
 };
 
-
 function createHeader() {
   const header = document.createElement("header");
   header.className = "header";
@@ -124,6 +123,10 @@ const drawPokemons = (list) => {
     const div = document.createElement("div");
     div.className = "front";
 
+    const pId = document.createElement("p");
+    pId.className = "pokemonId";
+    pId.innerText = "ID " + pokemon.id;
+
     const img = document.createElement("img");
     img.className = "imgPokemon";
     img.setAttribute("src", pokemon.image);
@@ -183,12 +186,13 @@ const drawPokemons = (list) => {
     pokedex.appendChild(divPokemon);
     divPokemon.appendChild(div);
     divPokemon.appendChild(divBack);
+    divPokemon.appendChild(pId)
     div.appendChild(h3);
     //divBack.appendChild(h3Back);
     div.appendChild(img);
     divBack.appendChild(imgBack);
     div.appendChild(p);
-    //divBack.appendChild(pBack);
+    divBack.appendChild(pId);
     divBack.appendChild(pesoBack);
     divBack.appendChild(alturaBack);
     divBack.appendChild(habilidadPokemonBack);
@@ -199,7 +203,8 @@ const searchPokemons = (event) => {
   const buscaInput = event.target.value.toLowerCase();
   const resultPokemon = ALL_POKEMONS.filter((pokemon) => {
     const matchName = pokemon.name.toLowerCase().includes(buscaInput);
-    return matchName;
+    const matchID = pokemon.id.includes(buscaInput);
+    return matchName || matchID;
   });
   console.log(buscaInput);
 
@@ -310,7 +315,6 @@ const initApp = async () => {
   createFooter();
   scrollBar();
 
-  pokemons.forEach((pokemon) => {});
-};
+}
 
 initApp();

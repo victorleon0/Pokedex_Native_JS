@@ -63,6 +63,7 @@
 }
 
 .header .inputHeader .inputSearch {
+  cursor: pointer;
   font-size: 17px;
   margin-right: 50px;
   border-radius: 30px;
